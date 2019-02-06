@@ -1,0 +1,3 @@
+package com.apsoftware.myapplication
+
+class DefinitionModel

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_marg">8dp</dimen>
+    <dimen name="large_marg">45dp</dimen>
+    <dimen name="standard_text_view_height">30dp</dimen>
+</resources>

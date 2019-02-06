@@ -1,0 +1,4 @@
+<resources>
+    <string name="search_box_hint">Please enter your search term</string>
+    <string name="app_name">Urban Dictionary</string>
+</resources>

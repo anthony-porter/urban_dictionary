@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Margin sizes -->
     <dimen name="small_marg">8dp</dimen>
     <dimen name="large_marg">45dp</dimen>
-    <dimen name="standard_text_view_height">30dp</dimen>
+
+    <!-- View sizes -->
+    <dimen name="standard_view_height">30dp</dimen>
+    <dimen name="standard_view_width">45dp</dimen>
+    <dimen name="round_button_diameter">40sp</dimen>
+    <dimen name="default_constraint">0dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="tiny_text_size">8sp</dimen>
+    <dimen name="small_text_size">10sp</dimen>
+    <dimen name="medium_text_size">13sp</dimen>
+    <dimen name="large_text_size">18sp</dimen>
+    <dimen name="huge_text_size">25sp</dimen>
+
 </resources>

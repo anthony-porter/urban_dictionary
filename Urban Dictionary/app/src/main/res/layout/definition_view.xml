@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_marginBottom="@dimen/small_marg">
+
+    <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            tools:text="Author: StarkLife"/>
+
+    <TextView
+            android:id="@+id/submission_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/small_text_size"
+            tools:text="8-12-2002"/>
+
+    <TextView
+            android:id="@+id/definition_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/author"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/medium_text_size"
+            android:maxLines="4"
+            tools:text="@string/example_def"/>
+
+    <Button
+            android:id="@+id/less_button"
+            android:layout_width="@dimen/standard_view_width"
+            android:layout_height="@dimen/standard_view_height"
+            app:layout_constraintTop_toBottomOf="@id/definition_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/small_text_size"
+            android:text="@string/less"
+            android:background="@null"/>
+
+    <Button
+            android:id="@+id/more_button"
+            android:layout_width="@dimen/standard_view_width"
+            android:layout_height="@dimen/standard_view_height"
+            app:layout_constraintTop_toBottomOf="@id/definition_text_view"
+            app:layout_constraintStart_toEndOf="@id/less_button"
+            android:textSize="@dimen/small_text_size"
+            android:text="@string/more"
+            android:background="@null"/>
+
+    <TextView
+            android:id="@+id/upvotes"
+            android:layout_width="@dimen/standard_view_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/more_button"
+            app:layout_constraintBottom_toBottomOf="@id/more_button"
+            app:layout_constraintEnd_toStartOf="@id/downvotes"
+            android:textSize="@dimen/small_text_size"
+            android:background="@null"
+            tools:text="UP 9999"/>
+
+    <TextView
+            android:id="@+id/downvotes"
+            android:layout_width="@dimen/standard_view_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/more_button"
+            app:layout_constraintBottom_toBottomOf="@id/more_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/small_text_size"
+            android:background="@null"
+            tools:text="DOWN 9999"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

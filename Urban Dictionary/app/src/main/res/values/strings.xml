@@ -1,4 +1,10 @@
 <resources>
     <string name="search_box_hint">Please enter your search term</string>
     <string name="app_name">Urban Dictionary</string>
+    <string name="example_def">It\'s original definition was \'Laughing out loud\' (also written occasionally as
+        \'Lots of Laughs\'), used as a brief acronym to denote great amusement in chat conversations.</string>
+    <string name="more">More</string>
+    <string name="less">Less</string>
+    <string name="thumb_up">&#128077;</string>
+    <string name="thumb_down">&#128078;</string>
 </resources>

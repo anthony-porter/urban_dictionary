@@ -18,19 +18,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="@dimen/small_marg"
             android:layout_marginEnd="@dimen/small_marg"
-            android:hint="@string/search_box_hint"
-            tools:hint="lol">
+            android:hint="@string/search_box_hint">
 
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/search_term_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:hint="lol" />
+                tools:text="lol">
+        </com.google.android.material.textfield.TextInputEditText>
+
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ToggleButton
+            android:id="@+id/sort_button"
+            android:layout_width="@dimen/round_button_diameter"
+            android:layout_height="@dimen/round_button_diameter"
+            app:layout_constraintTop_toBottomOf="@id/search_term_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textOff="@string/thumb_down"
+            android:textOn="@string/thumb_up"
+            tools:checked="false"/>
+
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/default_constraint"
+            android:layout_height="@dimen/default_constraint"
             android:layout_marginTop="@dimen/large_marg"
             app:layout_constraintTop_toBottomOf="@id/search_term_layout"
             android:layout_marginBottom="@dimen/large_marg"
@@ -39,8 +50,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="@dimen/large_marg"
             app:layout_constraintEnd_toEndOf="parent"
-    >
-
-    </androidx.recyclerview.widget.RecyclerView>
+            tools:itemCount="7"
+            tools:listitem="@layout/definition_view"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

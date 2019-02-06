@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Container for definition view -->
+<!-- Definition views can't be clicked or focused so it is clear to the user that the list doesn't have additional functionality -->
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,6 +11,7 @@
         android:focusable="false"
         android:layout_marginBottom="@dimen/small_marg">
 
+    <!-- Value is returned in json response to urban dictionary api call -->
     <TextView
             android:id="@+id/author"
             android:layout_width="match_parent"
@@ -19,6 +22,8 @@
             android:textStyle="bold"
             tools:text="Author: StarkLife"/>
 
+    <!-- Value is returned in json response to urban dictionary api call -->
+    <!-- formatting may be a challenge. This would also require thorough testing, e.g. time zones -->
     <TextView
             android:id="@+id/submission_date"
             android:layout_width="wrap_content"
@@ -28,6 +33,9 @@
             android:textSize="@dimen/small_text_size"
             tools:text="8-12-2002"/>
 
+    <!-- Value is returned in json response to urban dictionary api call -->
+    <!-- Initially display 4 lines of text. Use more or less buttons to change amount of text being displayed -->
+    <!-- improvement idea: add a button to give user the option to hide a definition -->
     <TextView
             android:id="@+id/definition_text_view"
             android:layout_width="match_parent"
@@ -38,26 +46,31 @@
             android:maxLines="4"
             tools:text="@string/example_def"/>
 
+    <!-- Display 5 more lines of the definition -->
+    <!-- Disable if full definition is being displayed -->
     <Button
             android:id="@+id/less_button"
             android:layout_width="@dimen/standard_view_width"
             android:layout_height="@dimen/standard_view_height"
             app:layout_constraintTop_toBottomOf="@id/definition_text_view"
             app:layout_constraintStart_toStartOf="parent"
-            android:textSize="@dimen/small_text_size"
+            android:textSize="@dimen/tiny_text_size"
             android:text="@string/less"
             android:background="@null"/>
 
+    <!-- Hide the last 5 lines of the definition -->
+    <!-- Disable if no lines are displayed -->
     <Button
             android:id="@+id/more_button"
             android:layout_width="@dimen/standard_view_width"
             android:layout_height="@dimen/standard_view_height"
             app:layout_constraintTop_toBottomOf="@id/definition_text_view"
             app:layout_constraintStart_toEndOf="@id/less_button"
-            android:textSize="@dimen/small_text_size"
+            android:textSize="@dimen/tiny_text_size"
             android:text="@string/more"
             android:background="@null"/>
 
+    <!-- Value is returned in json response to urban dictionary api call -->
     <TextView
             android:id="@+id/upvotes"
             android:layout_width="@dimen/standard_view_width"
@@ -65,10 +78,11 @@
             app:layout_constraintTop_toTopOf="@id/more_button"
             app:layout_constraintBottom_toBottomOf="@id/more_button"
             app:layout_constraintEnd_toStartOf="@id/downvotes"
-            android:textSize="@dimen/small_text_size"
+            android:textSize="@dimen/tiny_text_size"
             android:background="@null"
-            tools:text="UP 9999"/>
+            tools:text="U  999999"/>
 
+    <!-- Value is returned in json response to urban dictionary api call -->
     <TextView
             android:id="@+id/downvotes"
             android:layout_width="@dimen/standard_view_width"
@@ -76,8 +90,8 @@
             app:layout_constraintTop_toTopOf="@id/more_button"
             app:layout_constraintBottom_toBottomOf="@id/more_button"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="@dimen/small_text_size"
+            android:textSize="@dimen/tiny_text_size"
             android:background="@null"
-            tools:text="DOWN 9999"/>
+            tools:text="D  999999"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

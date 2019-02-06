@@ -29,6 +29,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Toggle for sorting by likes or dislikes -->
     <ToggleButton
             android:id="@+id/sort_button"
             android:layout_width="@dimen/round_button_diameter"
@@ -39,6 +40,7 @@
             android:textOn="@string/thumb_up"
             tools:checked="false"/>
 
+    <!-- List view for holding definitions -->
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="@dimen/default_constraint"
             android:layout_height="@dimen/default_constraint"

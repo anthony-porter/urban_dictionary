@@ -2,6 +2,7 @@
 <!-- Container for definition view -->
 <!-- Definition views can't be clicked or focused so it is clear to the user that the list doesn't have additional functionality -->
 <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/definition_holder"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -72,19 +73,19 @@
 
     <!-- Value is returned in json response to urban dictionary api call -->
     <TextView
-            android:id="@+id/upvotes"
+            android:id="@+id/thumbs_up"
             android:layout_width="@dimen/standard_view_width"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/more_button"
             app:layout_constraintBottom_toBottomOf="@id/more_button"
-            app:layout_constraintEnd_toStartOf="@id/downvotes"
+            app:layout_constraintEnd_toStartOf="@id/thumbs_down"
             android:textSize="@dimen/tiny_text_size"
             android:background="@null"
             tools:text="U  999999"/>
 
     <!-- Value is returned in json response to urban dictionary api call -->
     <TextView
-            android:id="@+id/downvotes"
+            android:id="@+id/thumbs_down"
             android:layout_width="@dimen/standard_view_width"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/more_button"

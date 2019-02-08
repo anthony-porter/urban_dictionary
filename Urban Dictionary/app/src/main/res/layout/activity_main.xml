@@ -10,7 +10,6 @@
     <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:mutableVisibility="@{viewModel.getLoadingVisibility()}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +50,7 @@
 
     <!-- List view for holding definitions -->
     <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/definition_recycler_view"
             android:layout_width="@dimen/default_constraint"
             android:layout_height="@dimen/default_constraint"
             android:layout_marginTop="@dimen/large_marg"
@@ -62,6 +62,6 @@
             android:layout_marginEnd="@dimen/large_marg"
             app:layout_constraintEnd_toEndOf="parent"
             tools:itemCount="7"
-            tools:listitem="@layout/definition_view"/>
+            tools:listitem="@layout/definition_view_holder"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

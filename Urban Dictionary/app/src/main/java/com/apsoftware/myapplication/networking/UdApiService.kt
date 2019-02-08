@@ -11,9 +11,10 @@ object UdApiService {
     val udApiRequest: UdApiRequest = UdApiCall.getService()
     internal lateinit var mutableLiveData: MutableLiveData<DefinitionModel>
 
-    fun getDefinitions() {
+    public fun getDefinitions(): MutableLiveData<DefinitionModel> {
         UdApiCall.getService().getDefinitions().enqueue(object : Callback<DefinitionModel> {
             override fun onFailure(call: Call<DefinitionModel>?, t: Throwable?) {
+                mutableLiveData.value = null
                 Log.v("retrofit", "call failed")
             }
 
@@ -21,5 +22,6 @@ object UdApiService {
                 mutableLiveData.value = response!!.body()
             }
         })
+        return mutableLiveData
     }
 }

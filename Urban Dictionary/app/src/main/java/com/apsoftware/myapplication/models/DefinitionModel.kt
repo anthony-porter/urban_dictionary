@@ -16,14 +16,15 @@ data class DefinitionModel(
 
     @field:Json(name = "definition") val definition: String, // Not nullable and no default value. If the word is missing an exception should be thrown
     @field:Json(name = "permalink") val permalink: String? = null,
-    @field:Json(name = "thumbs_up") val thumbs_up: Int? = null,
-    @field:Json(name = "thumbs_down") val thumbs_down: Int? = null,
+    @field:Json(name = "thumbs_up") val thumbs_up: Int,
+    @field:Json(name = "thumbs_down") val thumbs_down: Int,
     @field:Json(name = "sound_urls") val sound_urls: List<String>? = null,
     @field:Json(name = "author") val author: String? = null,
     @field:Json(name = "defId") val defId: String? = null,
     @field:Json(name = "word") val word: String, // Not nullable and no default value. If the word is missing an exception should be thrown
     @field:Json(name = "written_on") val written_on: String? = null,
     @field:Json(name = "example") val example: String? = null,
+    @field:Json(name = "submission_date") val submission_date: String? = null,
     @field:Json(name = "current_vote") val current_vote: String? = null
 )
 

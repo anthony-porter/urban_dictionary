@@ -1,4 +1,4 @@
-package com.apsoftware.myapplication
+package com.apsoftware.urbandictionary.myapplication
 
 import org.junit.Test
 

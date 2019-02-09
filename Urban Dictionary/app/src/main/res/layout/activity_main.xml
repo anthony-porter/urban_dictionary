@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
     <!-- MarginTop uses magic number because single usage doesn't warrant adding to dimen -->
     <com.google.android.material.textfield.TextInputLayout
@@ -30,10 +30,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Toggle for sorting by likes or dislikes -->
+    <Button
+            android:id="@+id/submit_button"
+            android:layout_width="@dimen/wide_view_width"
+            android:layout_height="@dimen/square_button_length"
+            app:layout_constraintTop_toBottomOf="@id/search_term_layout"
+            app:layout_constraintEnd_toStartOf="@id/sort_button"
+            android:textSize="@dimen/small_text_size"
+            android:text="@string/search"/>
     <ToggleButton
             android:id="@+id/sort_button"
-            android:layout_width="@dimen/round_button_diameter"
-            android:layout_height="@dimen/round_button_diameter"
+            android:layout_width="@dimen/square_button_length"
+            android:layout_height="@dimen/square_button_length"
             app:layout_constraintTop_toBottomOf="@id/search_term_layout"
             app:layout_constraintEnd_toEndOf="parent"
             android:textOff="@string/thumb_down"

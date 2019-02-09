@@ -1,4 +1,4 @@
 package com.apsoftware.myapplication
 
-class DefinitionViewModel {
+class DefinitionRepository {
 }

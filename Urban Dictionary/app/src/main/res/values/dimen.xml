@@ -7,7 +7,8 @@
     <!-- View sizes -->
     <dimen name="standard_view_height">30dp</dimen>
     <dimen name="standard_view_width">45dp</dimen>
-    <dimen name="round_button_diameter">40sp</dimen>
+    <dimen name="wide_view_width">75dp</dimen>
+    <dimen name="square_button_length">40dp</dimen>
     <dimen name="default_constraint">0dp</dimen>
 
     <!-- Text Sizes -->

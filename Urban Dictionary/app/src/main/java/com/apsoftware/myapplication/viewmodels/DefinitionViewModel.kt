@@ -1,9 +1,9 @@
 package com.apsoftware.myapplication.viewmodels
 
 import android.util.Log
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.apsoftware.myapplication.R
 import com.apsoftware.myapplication.models.Definition
 import com.apsoftware.myapplication.networking.DefinitionRetrofitClient
 import com.apsoftware.myapplication.ui.DefinitionListAdapter
@@ -15,6 +15,9 @@ class DefinitionViewModel : ViewModel() {
     private var adapter: DefinitionListAdapter by Delegates.notNull()
     var definitionClient: DefinitionRetrofitClient by Delegates.notNull()
         private set
+    private var definitionClient: DefinitionRetrofitClient by Delegates.notNull()
+    val loading: ObservableInt
+        get() = definitionClient.loading
     val definitionList: MutableLiveData<List<Definition>>
         get() = definitionClient.getDefinitions()
 

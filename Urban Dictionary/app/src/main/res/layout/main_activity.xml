@@ -13,6 +13,28 @@
             android:layout_height="match_parent"
             tools:context=".MainActivity">
 
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0dp"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintTop_toBottomOf="@id/search_term_layout"
+                     android:background="#33000000"
+                     android:visibility="@{model.loading}">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                    app:layout_constraintTop_toTopOf="@id/search_term_layout"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:id="@+id/spinnerLoading"
+                    android:indeterminate="true"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:visibility="@{model.loading}"
+                    android:layout_gravity="center"/>
+        </FrameLayout>
+
         <!-- MarginTop uses magic number because single usage doesn't warrant adding to dimen -->
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/search_term_layout"

@@ -15,16 +15,21 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 const val BASE_URL: String = "https://mashape-community-urban-dictionary.p.mashape.com/"
 const val TAG = "DefinitionRetrofitCl"
 
-object DefinitionRetrofitClient: Callback<ApiResponse> {
+class DefinitionRetrofitClient: Callback<ApiResponse> {
+
+    private val definitions: MutableLiveData<List<Definition>> = MutableLiveData()
+
+    fun getDefinitions(): MutableLiveData<List<Definition>>{
+        return definitions;
+    }
 
     override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-        Log.d(TAG, "api success!! You did it!" + response.body())
-        println(response) //To change body of created functions use File | Settings | File Templates.
+        Log.d(TAG, "SUCCESS" + response.body())
+        definitions.value = response.body()!!.list
     }
 
     override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
         Log.e(TAG, "Api failure. reason: " + t.message)
-        println(t)//To change body of created functions use File | Settings | File Templates.
     }
 
     fun makeCall(searchTerm: String) {

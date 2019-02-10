@@ -46,4 +46,12 @@ class DefinitionRetrofitClient: Callback<ApiResponse> {
         Log.d(TAG, definitionApiCall.toString())
         loading.set(View.VISIBLE)
     }
+
+    fun sortRecyclerView(isChecked: Boolean) {
+        if (isChecked) {
+            definitions.value = definitions.value!!.sortedWith(compareByDescending { it.thumbs_down })
+        } else {
+            definitions.value = definitions.value!!.sortedWith(compareByDescending { it.thumbs_up })
+        }
+    }
 }

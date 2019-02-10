@@ -51,5 +51,7 @@ class DefinitionViewModel : ViewModel() {
         } else null
     }
 
-
+    fun sortRecyclerView(isChecked: Boolean) {
+        definitionClient.sortRecyclerView(isChecked)
+    }
 }

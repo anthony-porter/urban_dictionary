@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
                 definitionViewModel.updateDefinitionList(search_term_edit_text.text.toString())
             }
         }
+        sort_button.setOnClickListener {
+            run {
+                definitionViewModel.sortRecyclerView(sort_button.isChecked)
+            }
+        }
     }
 
     private fun setupBindings(savedInstanceState: Bundle?) {

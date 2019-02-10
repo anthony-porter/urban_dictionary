@@ -11,24 +11,25 @@ import kotlin.properties.Delegates
 
 const val TAG: String = "DefinitionViewModel"
 
+
 class DefinitionViewModel : ViewModel() {
     private var adapter: DefinitionListAdapter by Delegates.notNull()
-    var definitionClient: DefinitionRetrofitClient by Delegates.notNull()
-        private set
     private var definitionClient: DefinitionRetrofitClient by Delegates.notNull()
+
     val loading: ObservableInt
         get() = definitionClient.loading
+
     val definitionList: MutableLiveData<List<Definition>>
         get() = definitionClient.getDefinitions()
 
     fun init() {
         Log.d(TAG, "Initializing adapter and DefinitionRetrofitClient")
-        adapter = DefinitionListAdapter(R.layout.definition_view, this)
+        adapter = DefinitionListAdapter(this)
         definitionClient = DefinitionRetrofitClient()
     }
 
     fun updateDefinitionList(searchTerm: String) {
-        Log.d(TAG, "updating dataDefinition for searchTerm: " + searchTerm)
+        Log.d(TAG, "updating dataDefinition for searchTerm: $searchTerm")
         definitionClient.makeCall(searchTerm)
     }
 
@@ -39,7 +40,7 @@ class DefinitionViewModel : ViewModel() {
     }
 
     fun getDefinitionListAdapter(): DefinitionListAdapter {
-        return adapter;
+        return adapter
     }
 
     fun getDefinitionByIndex(position: Int?): Definition? {

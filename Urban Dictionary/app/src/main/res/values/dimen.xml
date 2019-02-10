@@ -5,6 +5,7 @@
     <dimen name="large_marg">45dp</dimen>
 
     <!-- View sizes -->
+    <dimen name="skinny_view_width">20dp</dimen>
     <dimen name="standard_view_height">30dp</dimen>
     <dimen name="standard_view_width">45dp</dimen>
     <dimen name="wide_view_width">75dp</dimen>
@@ -15,7 +16,5 @@
     <dimen name="tiny_text_size">8sp</dimen>
     <dimen name="small_text_size">10sp</dimen>
     <dimen name="medium_text_size">13sp</dimen>
-    <dimen name="large_text_size">18sp</dimen>
-    <dimen name="huge_text_size">25sp</dimen>
 
 </resources>

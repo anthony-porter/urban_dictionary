@@ -5,8 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="model"
-            type="com.apsoftware.myapplication.viewmodels.DefinitionViewModel"/>
+                name="model"
+                type="com.apsoftware.myapplication.viewmodels.DefinitionViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -72,8 +72,8 @@
                 android:layout_height="@dimen/square_button_length"
                 app:layout_constraintTop_toBottomOf="@id/search_term_layout"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textOff="@string/thumb_down"
-                android:textOn="@string/thumb_up"
+                android:textOn="@string/thumb_down"
+                android:textOff="@string/thumb_up"
                 tools:checked="false"/>
 
         <!-- List view for holding definitions -->

@@ -2,7 +2,6 @@ package com.apsoftware.myapplication
 
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -21,7 +20,6 @@ const val TAG: String = "MainActivity"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var definitionViewModel: DefinitionViewModel
-    lateinit var activityBinding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,19 +47,18 @@ class MainActivity : AppCompatActivity() {
 
         definitionViewModel = ViewModelProviders.of(this).get(DefinitionViewModel::class.java)
         if (savedInstanceState == null) {
-            Log.d(TAG, "savedInstance was null setting up viewmodel")
+            Log.d(TAG, "savedInstance was null setting up ViewModel")
             definitionViewModel.init()
         }
         activityBinding.model = definitionViewModel
         setupListUpdate()
-
     }
 
-    val nameObserver = Observer<List<Definition>> { definitions ->
+    private val definitionListObserver = Observer<List<Definition>> { definitions ->
         definitionViewModel.setDefinitionsInAdapter((definitions))
     }
 
     private fun setupListUpdate() {
-        definitionViewModel.definitionList.observe(this, nameObserver)
+        definitionViewModel.definitionList.observe(this, definitionListObserver)
     }
 }

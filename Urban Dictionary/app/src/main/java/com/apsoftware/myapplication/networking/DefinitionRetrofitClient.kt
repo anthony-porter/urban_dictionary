@@ -17,13 +17,14 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 const val BASE_URL: String = "https://mashape-community-urban-dictionary.p.mashape.com/"
 const val TAG = "DefinitionRetrofitCl"
 
-class DefinitionRetrofitClient: Callback<ApiResponse> {
+
+class DefinitionRetrofitClient : Callback<ApiResponse> {
 
     private val definitions: MutableLiveData<List<Definition>> = MutableLiveData()
     var loading: ObservableInt = ObservableInt(View.GONE)
 
-    fun getDefinitions(): MutableLiveData<List<Definition>>{
-        return definitions;
+    fun getDefinitions(): MutableLiveData<List<Definition>> {
+        return definitions
     }
 
     override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {

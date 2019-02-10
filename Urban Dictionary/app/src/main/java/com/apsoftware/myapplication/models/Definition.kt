@@ -2,7 +2,6 @@ package com.apsoftware.myapplication.models
 
 import com.squareup.moshi.Json
 
-const val EMPTY_STRING: String = ""
 
 /**
  * Simple model for word definitions
@@ -12,7 +11,6 @@ const val EMPTY_STRING: String = ""
  * words that may not have received as much attention
  */
 data class Definition(
-
     @field:Json(name = "definition") val definition: String, // Not nullable and no default value. If the word is missing an exception should be thrown
     @field:Json(name = "permalink") val permalink: String? = null,
     @field:Json(name = "thumbs_up") val thumbs_up: Int,

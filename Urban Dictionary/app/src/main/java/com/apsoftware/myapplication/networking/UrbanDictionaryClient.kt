@@ -6,6 +6,7 @@ import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import com.apsoftware.myapplication.models.ApiResponse
 import com.apsoftware.myapplication.models.Definition
+import dagger.Component
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +23,9 @@ const val TAG = "DefinitionRetrofitCl"
  * This class acts as the model in the MVVM pattern. It is responsible for retrieving and holding data
  * while the app runs. Utilizing this patter also decreases the need to save instance state using
  * traditional methods.
+ * TODO move progress spinner to a fragment
  */
+@Component(modules = [DefinitionNetworkModule::class])
 class DefinitionRetrofitClient : Callback<ApiResponse> {
 
     private val definitions: MutableLiveData<List<Definition>> = MutableLiveData()

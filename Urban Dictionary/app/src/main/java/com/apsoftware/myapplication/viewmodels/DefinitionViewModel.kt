@@ -87,4 +87,11 @@ class DefinitionViewModel : ViewModel() {
     fun sortRecyclerView(isChecked: Boolean) {
         definitionClient.sortRecyclerView(isChecked)
     }
+
+    /**
+     * Kind of hacky, but will allow views to be disabled when loading widget is visible
+     */
+    fun viewUnlocked(visibility: Int): Boolean {
+        return visibility == View.GONE
+    }
 }

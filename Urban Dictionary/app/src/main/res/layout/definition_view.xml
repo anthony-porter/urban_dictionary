@@ -61,37 +61,12 @@
                 android:text="@{viewModel.getDefinitionByIndex(position).definition}"
                 tools:text="@string/example_def"/>
 
-        <!-- Display 5 more lines of the definition -->
-        <!-- Disable if full definition is being displayed -->
-        <Button
-                android:id="@+id/less_button"
-                android:layout_width="@dimen/standard_view_width"
-                android:layout_height="@dimen/standard_view_height"
-                app:layout_constraintTop_toBottomOf="@id/definition_text_view"
-                app:layout_constraintStart_toStartOf="parent"
-                android:textSize="@dimen/tiny_text_size"
-                android:text="@string/less"
-                android:background="@null"/>
-
-        <!-- Hide the last 5 lines of the definition -->
-        <!-- Disable if no lines are displayed -->
-        <Button
-                android:id="@+id/more_button"
-                android:layout_width="@dimen/standard_view_width"
-                android:layout_height="@dimen/standard_view_height"
-                app:layout_constraintTop_toBottomOf="@id/definition_text_view"
-                app:layout_constraintStart_toEndOf="@id/less_button"
-                android:textSize="@dimen/tiny_text_size"
-                android:text="@string/more"
-                android:background="@null"/>
-
         <!-- Value is returned in json response to urban dictionary api call -->
         <TextView
                 android:id="@+id/upvotes"
                 android:layout_width="@dimen/skinny_view_width"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/more_button"
-                app:layout_constraintBottom_toBottomOf="@id/more_button"
+                app:layout_constraintTop_toBottomOf="@id/definition_text_view"
                 app:layout_constraintEnd_toStartOf="@id/upvote_count"
                 android:textSize="@dimen/tiny_text_size"
                 android:background="@null"
@@ -119,8 +94,8 @@
                 android:id="@+id/downvotes"
                 android:layout_width="@dimen/skinny_view_width"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/more_button"
-                app:layout_constraintBottom_toBottomOf="@id/more_button"
+                app:layout_constraintTop_toTopOf="@id/upvotes"
+                app:layout_constraintBottom_toBottomOf="@id/upvotes"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textSize="@dimen/tiny_text_size"
                 android:background="@null"

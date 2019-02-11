@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupBindings(savedInstanceState)
+        bindToViewModel(savedInstanceState == null)
         submit_button.setOnClickListener {
             run {
                 Log.d(TAG, "submit button clicked")
@@ -37,7 +37,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupBindings(savedInstanceState: Bundle?) {
+    /**
+     * Bind ViewModel to Activity
+     * @param initializeViewModel whether or not to initialize ViewModel
+     * // TODO extract RecyclerView setup logic
+     */
+    private fun bindToViewModel(initializeViewModel: Boolean) {
         Log.d(TAG, "setting up bindings")
         val activityBinding = DataBindingUtil.setContentView<MainActivityBinding>(this, R.layout.main_activity)
 
@@ -46,19 +51,25 @@ class MainActivity : AppCompatActivity() {
         definition_recycler_view.layoutManager = llm
 
         definitionViewModel = ViewModelProviders.of(this).get(DefinitionViewModel::class.java)
-        if (savedInstanceState == null) {
+        if (initializeViewModel) {
             Log.d(TAG, "savedInstance was null setting up ViewModel")
             definitionViewModel.init()
         }
         activityBinding.model = definitionViewModel
-        setupListUpdate()
+        setUpListUpdate()
     }
 
+    /**
+     * Bind ListAdapter to ViewModel
+     */
     private val definitionListObserver = Observer<List<Definition>> { definitions ->
         definitionViewModel.setDefinitionsInAdapter((definitions))
     }
 
-    private fun setupListUpdate() {
+    /**
+     * Set up Observable for DefinitionList
+     */
+    private fun setUpListUpdate() {
         definitionViewModel.definitionList.observe(this, definitionListObserver)
     }
 }

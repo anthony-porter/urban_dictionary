@@ -11,6 +11,11 @@ import com.apsoftware.myapplication.models.Definition
 import com.apsoftware.myapplication.viewmodels.DefinitionViewModel
 
 
+/**
+ * ListAdapter and ViewHolder for the Definition RecyclerView. Binds RecyclerView and
+ * ViewHolder instances to ViewModel
+ * @param definitionViewModel ViewModel responsible for transporting data between model and ui
+ */
 class DefinitionListAdapter(private val definitionViewModel: DefinitionViewModel) :
     RecyclerView.Adapter<DefinitionListAdapter.DefinitionViewHolder>() {
 

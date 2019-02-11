@@ -48,13 +48,13 @@
                 android:layout_marginEnd="@dimen/small_marg"
                 android:hint="@string/search_box_hint">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/search_term_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:focusable="@{model.viewUnlocked(model.loading)}"
+                    android:enabled="@{model.enabled}"
                     tools:text="lol">
-            </EditText>
+            </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +66,7 @@
                 app:layout_constraintTop_toBottomOf="@id/search_term_layout"
                 app:layout_constraintEnd_toStartOf="@id/sort_button"
                 android:textSize="@dimen/small_text_size"
-                android:focusable="@{model.viewUnlocked(model.loading)}"
+                android:enabled="@{model.enabled}"
                 android:text="@string/search"/>
         <ToggleButton
                 android:id="@+id/sort_button"
@@ -76,7 +76,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textOn="@string/thumb_down"
                 android:textOff="@string/thumb_up"
-                android:focusable="@{model.viewUnlocked(model.loading)}"
+                android:enabled="@{model.enabled}"
                 tools:checked="false"/>
 
         <!-- List view for holding definitions -->
@@ -93,7 +93,6 @@
                 android:layout_marginEnd="@dimen/large_marg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:setAdapter="@{model.getDefinitionListAdapter()}"
-                android:focusable="@{model.viewUnlocked(model.loading)}"
                 tools:itemCount="7"
                 tools:listitem="@layout/definition_view"
         />

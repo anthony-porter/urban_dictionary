@@ -1,11 +1,12 @@
 package com.apsoftware.myapplication.viewmodels
 
 import android.util.Log
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.apsoftware.myapplication.models.Definition
-import com.apsoftware.myapplication.networking.DefinitionRetrofitClient
+import com.apsoftware.myapplication.networking.UrbanDictionaryClient
 import com.apsoftware.myapplication.ui.DefinitionListAdapter
 import kotlin.properties.Delegates
 
@@ -18,13 +19,17 @@ const val TAG: String = "DefinitionViewModel"
 class DefinitionViewModel : ViewModel() {
     // ViewModel's interface with the UI
     private var adapter: DefinitionListAdapter by Delegates.notNull()
+    private var mockAdapter: DefinitionListAdapter? = null
 
     // ViewModel's interface with the Model
-    private var definitionClient: DefinitionRetrofitClient by Delegates.notNull()
+    private var definitionClient: UrbanDictionaryClient by Delegates.notNull()
 
     // Property for tracking the visibility of the loading spinner
     val loading: ObservableInt
         get() = definitionClient.loading
+
+    val enabled: ObservableBoolean
+        get() = definitionClient.enabled
 
     // Property for populating and updating the RecycleView
     val definitionList: MutableLiveData<List<Definition>>
@@ -32,12 +37,16 @@ class DefinitionViewModel : ViewModel() {
 
     /**
      * Initialize ViewAdapter and DefinitionRetroFit client
-     * TODO make this into a singleton
+     * TODO use dagger to inject adapter and definitionClient
      */
     fun init() {
-        Log.d(TAG, "Initializing adapter and DefinitionRetrofitClient")
-        adapter = DefinitionListAdapter(this)
-        definitionClient = DefinitionRetrofitClient()
+        Log.d(TAG, "Initializing adapter and UrbanDictionaryClient")
+        if (mockAdapter == null) {
+            adapter = DefinitionListAdapter(this)
+            definitionClient = UrbanDictionaryClient()
+        } else {
+            adapter = mockAdapter as DefinitionListAdapter
+        }
     }
 
     /**
@@ -51,7 +60,7 @@ class DefinitionViewModel : ViewModel() {
 
     /**
      * Binding ListAdapter to DefinitionsList
-     * @param DefinitionsList for ListAdapter to bind to
+     * @param definitions for ListAdapter to bind to
      */
     fun setDefinitionsInAdapter(definitions: List<Definition>) {
         Log.d(TAG, "updating definition list")
@@ -88,10 +97,7 @@ class DefinitionViewModel : ViewModel() {
         definitionClient.sortRecyclerView(isChecked)
     }
 
-    /**
-     * Kind of hacky, but will allow views to be disabled when loading widget is visible
-     */
-    fun viewUnlocked(visibility: Int): Boolean {
-        return visibility == View.GONE
+    fun setMockAdapter(mock: DefinitionListAdapter) {
+        mockAdapter = mock
     }
 }

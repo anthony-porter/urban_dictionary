@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.main_activity.*
 
 const val TAG: String = "MainActivity"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : androidx.appcompat.app.AppCompatActivity() {
 
     private lateinit var definitionViewModel: DefinitionViewModel
 

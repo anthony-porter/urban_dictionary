@@ -82,10 +82,12 @@ class UrbanDictionaryClient : Callback<ApiResponse> {
      * @param isChecked the state of the sort button
      */
     fun sortRecyclerView(isChecked: Boolean) {
-        if (isChecked) {
-            definitions.value = definitions.value!!.sortedWith(compareByDescending { it.thumbs_down })
-        } else {
-            definitions.value = definitions.value!!.sortedWith(compareByDescending { it.thumbs_up })
+        if(definitions.value != null) {
+            if (isChecked) {
+                definitions.value = definitions.value!!.sortedWith(compareByDescending { it.thumbs_down })
+            } else {
+                definitions.value = definitions.value!!.sortedWith(compareByDescending { it.thumbs_up })
+            }
         }
     }
 }

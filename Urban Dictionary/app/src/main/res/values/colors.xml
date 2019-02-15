@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#A5A79C</color>
+    <color name="colorToggleOn">#A5C79C</color>
+    <color name="colorToggleOff">#FF8888</color>
+    <color name="colorPrimaryDark">#123535</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="recycler_view_list_item_background">#76817D</color>
 </resources>

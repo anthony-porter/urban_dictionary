@@ -2,7 +2,7 @@
 <resources>
     <!-- Margin sizes -->
     <dimen name="small_marg">8dp</dimen>
-    <dimen name="large_marg">45dp</dimen>
+    <dimen name="large_marg">25dp</dimen>
 
     <!-- View sizes -->
     <dimen name="skinny_view_width">20dp</dimen>

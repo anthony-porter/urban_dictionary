@@ -21,7 +21,9 @@
             android:clickable="false"
             android:focusable="false"
             android:layout_marginBottom="@dimen/small_marg"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+    android:background="@drawable/list_item_background"
+    tools:background="@drawable/list_item_background">
 
         <!-- Value is returned in json response to urban dictionary api call -->
         <TextView
@@ -33,7 +35,8 @@
                 android:textSize="@dimen/medium_text_size"
                 android:textStyle="bold"
                 android:text="@{viewModel.getDefinitionByIndex(position).author}"
-                tools:text="Author: StarkLife"/>
+                tools:text="Author: StarkLife"
+        style="@style/recycler_view_text"/>
 
         <!-- Value is returned in json response to urban dictionary api call -->
         <!-- formatting may be a challenge. This would also require thorough testing, e.g. time zones -->
@@ -45,7 +48,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textSize="@dimen/small_text_size"
                 android:text="@{viewModel.getDefinitionByIndex(position).written_on}"
-                tools:text="8-12-2002"/>
+                tools:text="8-12-2002"
+                style="@style/recycler_view_text"/>
 
         <!-- Value is returned in json response to urban dictionary api call -->
         <!-- Initially display 4 lines of text. Use more or less buttons to change amount of text being displayed -->
@@ -59,7 +63,8 @@
                 android:textSize="@dimen/medium_text_size"
                 android:maxLines="10"
                 android:text="@{viewModel.getDefinitionByIndex(position).definition}"
-                tools:text="@string/example_def"/>
+                tools:text="@string/example_def"
+                style="@style/recycler_view_text"/>
 
         <!-- Value is returned in json response to urban dictionary api call -->
         <TextView
@@ -71,7 +76,8 @@
                 android:textSize="@dimen/tiny_text_size"
                 android:background="@null"
                 android:text="@string/thumb_up"
-                tools:text="@string/thumb_up"/>
+                tools:text="@string/thumb_up"
+                style="@style/recycler_view_text"/>
         <TextView
                 android:id="@+id/upvote_count"
                 android:layout_width="@dimen/standard_view_width" android:layout_height="wrap_content"
@@ -79,7 +85,8 @@
                 app:layout_constraintBottom_toBottomOf="@id/upvotes"
                 app:layout_constraintEnd_toStartOf="@id/downvote_count"
                 android:text="@{Integer.toString(viewModel.getDefinitionByIndex(position).thumbs_up)}"
-                tools:text="99999"/>
+                tools:text="99999"
+                style="@style/recycler_view_text"/>
         <TextView
                 android:id="@+id/downvote_count"
                 android:layout_width="@dimen/standard_view_width" android:layout_height="wrap_content"
@@ -87,7 +94,8 @@
                 app:layout_constraintBottom_toBottomOf="@id/upvotes"
                 app:layout_constraintEnd_toStartOf="@id/downvotes"
                 android:text="@{Integer.toString(viewModel.getDefinitionByIndex(position).thumbs_down)}"
-                tools:text="99999"/>
+                tools:text="99999"
+                style="@style/recycler_view_text"/>
 
         <!-- Value is returned in json response to urban dictionary api call -->
         <TextView
@@ -100,7 +108,8 @@
                 android:textSize="@dimen/tiny_text_size"
                 android:background="@null"
                 android:text="@string/thumb_down"
-                tools:text="@string/thumb_down"/>
+                tools:text="@string/thumb_down"
+                style="@style/recycler_view_text"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

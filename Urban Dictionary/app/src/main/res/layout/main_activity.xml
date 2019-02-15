@@ -11,7 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            tools:context=".MainActivity"
+            android:background="@color/colorPrimaryDark">
 
         <FrameLayout android:layout_width="match_parent" android:layout_height="0dp"
                      app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +20,8 @@
                      app:layout_constraintBottom_toBottomOf="parent"
                      app:layout_constraintTop_toBottomOf="@id/search_term_layout"
                      android:background="#33000000"
-                     android:visibility="@{model.loading}">
+                     android:visibility="@{model.loading}"
+                     tools:visibility="gone">
 
             <androidx.core.widget.ContentLoadingProgressBar
                     app:layout_constraintTop_toTopOf="@id/search_term_layout"
@@ -46,14 +48,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="@dimen/small_marg"
                 android:layout_marginEnd="@dimen/small_marg"
-                android:hint="@string/search_box_hint">
+                android:hint="@string/search_box_hint"
+                app:boxBackgroundColor="#595959"
+                app:boxBackgroundMode="filled"
+                app:hintTextAppearance="@style/TextLabel"
+                style="@style/TextLabel">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/search_term_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:enabled="@{model.enabled}"
-                    tools:text="lol">
+                    tools:text="lol"
+                    style="@style/recycler_view_text">
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,19 +80,21 @@
                 android:layout_width="@dimen/square_button_length"
                 android:layout_height="@dimen/square_button_length"
                 app:layout_constraintTop_toBottomOf="@id/search_term_layout"
+                android:layout_marginEnd="@dimen/large_marg"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textOn="@string/thumb_down"
-                android:textOff="@string/thumb_up"
+                android:textOn=""
+                android:textOff=""
                 android:enabled="@{model.enabled}"
-                tools:checked="false"/>
+                tools:checked="false"
+                android:background="@drawable/round_button"/>
 
         <!-- List view for holding definitions -->
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/definition_recycler_view"
                 android:layout_width="@dimen/default_constraint"
                 android:layout_height="@dimen/default_constraint"
-                android:layout_marginTop="@dimen/large_marg"
-                app:layout_constraintTop_toBottomOf="@id/search_term_layout"
+                android:layout_marginTop="@dimen/small_marg"
+                app:layout_constraintTop_toBottomOf="@id/submit_button"
                 android:layout_marginBottom="@dimen/large_marg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="@dimen/large_marg"

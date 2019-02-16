@@ -80,6 +80,7 @@ class UrbanDictionaryClient : Callback<ApiResponse> {
     /**
      * Sort the recyclerview in descending order by either up-votes or down-votes
      * @param isChecked the state of the sort button
+     * TODO: Push this method up to DefinitionViewModel having business logic on this level is a design flaw
      */
     fun sortRecyclerView(isChecked: Boolean) {
         if(definitions.value != null) {

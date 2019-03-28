@@ -39,6 +39,7 @@ class DefinitionListAdapter(private val definitionViewModel: DefinitionViewModel
         holder.bind(definitionViewModel, position)
     }
 
+    // TODO: Investigate if this refactoring this class makes writing this class without a null check possible
     override fun getItemCount(): Int {
         return if (definitionViewModel.definitionList.value != null) {
             definitionViewModel.definitionList.value!!.size
